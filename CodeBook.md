@@ -4,7 +4,7 @@ Author: Tracy Shen
 
 Date: Sunday, March 22, 2015
 
-This codebook is created in the spirit of data dictionary per the course requirement "a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data". Link: https://class.coursera.org/getdata-012/human_grading/view/courses/973499/assessments/3/submissions. Hence, it is author's interpretation that the codebook is to explain the variables used or transformed to perofrm the analysis, not the variables of the data itself.The data variable explanation can be found under feature_info.txt file in the original data zip folder. 
+This codebook is created in the spirit of data dictionary per the course requirement "a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data". Link: https://class.coursera.org/getdata-012/human_grading/view/courses/973499/assessments/3/submissions. Hence, it is author's interpretation that the codebook is to explain the variables used or transformed to perofrm the analysis, not the variables of the data itself.The data variable explanation can be found under "feature_info.txt" file in the original data zip folder. 
 
 The codebook is also composed under the guidance of Week1 lecture "Components of Tidy Data" :https://github.com/rdpeng/courses/blob/master/03_GettingData/01_03_componentsOfTidyData/index.md. Per its advice, a "study design" session is also included within the codebook along with the variable explanation and transformation. 
 
@@ -61,9 +61,9 @@ subject2: data frame read from "subject_train.txt" file that contains values for
 
 joint: the combined data frame from subject 1 and subject 2 with column name as "subject".
 
-nact1: data frame read from y_test.txt file that contains activity codes for the testing population. It has 2947 rows and 1 column with values ranging from 1 to 6. 
+nact1: data frame read from "y_test.txt" file that contains activity codes for the testing population. It has 2947 rows and 1 column with values ranging from 1 to 6. 
 
-nact2: data frame read from y_train.txt file that contains activity codes for the training population. It has 7352 rows and 1 column with values ranging from 1 to 6. 
+nact2: data frame read from "y_train.txt" file that contains activity codes for the training population. It has 7352 rows and 1 column with values ranging from 1 to 6. 
 
 activity: the combined data frame from nact1 and nact2 with column name as "activity". It has 10299 rows and 1 column with values substituted for descriptive names. The mapping is: "1=walking" , "2=walking_upstairs", "3=walking_downstairs","4=sitting","5=standing", "6=laying".
 
