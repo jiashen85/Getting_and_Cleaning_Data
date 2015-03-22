@@ -58,11 +58,15 @@ Note: As the project itself didn't speficify if students should follow the steps
 
 Step1: Merges the training and the test sets to create one data set
 
-Read the "X_train.txt", "X_test.txt", "features.txt" file using read.table() into R and save them in the objects "X_test", "X_train" and "feature" respectively. As "X_train.txt", "X_test.txt" come with no column names, assign features to both the files as column names. Merge the two data sets using rbind() into object "rawdata". For the convenience of carrying out other steps, subject files are read into R here and saved in the objects " subject1", "subject2".They are then merged into object "joint" and have their column renamed as "subject". To verify correct outcome: you should get a 10299 * 561 data sets with column names as features. 
+Read the "X_train.txt", "X_test.txt", "features.txt" file using read.table() into R and save them in the objects "X_test", "X_train" and "feature" respectively. As "X_train.txt", "X_test.txt" come with no column names, assign features to both the files as column names. Merge the two data sets using rbind() into object "rawdata". For the convenience of carrying out other steps, subject files are read into R here and saved in the objects " subject1", "subject2".They are then merged into object "joint" and have their column renamed as "subject". 
+
+To verify correct outcome: you should get a 10299 * 561 data sets with column names as features. 
 
 Step3: Uses descriptive activity names to name the activities in the data set
 
-Read the activity code files "y_test.txt", "y_train.txt" and save them under the objects "nact1", nact2".Combine them together to be one dataset named "activity". Per the project request, we need to substitute codes for descriptive names which provided by the "activity_lables.txt" file. That is "1=walking" , "2=walking_upstairs", "3=walking_downstairs","4=sitting","5=standing", "6=laying". This has been achieved via a code string (e.g.) 'activity$V1[activity$V1=="1"]<-"walking"'. After it's done, rename the column as "activity" and combine the columns of "joint" and "activity" and "rawdata" together and create a new dataset called "newdata".They should be in 10299 rows and 563 columns. 
+Read the activity code files "y_test.txt", "y_train.txt" and save them under the objects "nact1", nact2".Combine them together to be one dataset named "activity". Per the project request, we need to substitute codes for descriptive names which provided by the "activity_lables.txt" file. That is "1=walking" , "2=walking_upstairs", "3=walking_downstairs","4=sitting","5=standing", "6=laying". This has been achieved via a code string (e.g.) 'activity$V1[activity$V1=="1"]<-"walking"'. After it's done, rename the column as "activity" and combine the columns of "joint" and "activity" and "rawdata" together and create a new dataset called "newdata".
+
+They should be in 10299 rows and 563 columns. 
 
 Step2: Extracts only the measurements on the mean and standard deviation for each measurement.
 
