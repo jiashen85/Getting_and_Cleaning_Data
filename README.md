@@ -82,9 +82,9 @@ As you may find, the naming convention after make.names() is still a little bit 
 
 -Due to the multiple types of data collected by the study, the naming convention is unavoidably complicated and the original naming did a good job by making them sensible but in a fairly short form. 
 
--The only drawback of the original naming is it's not clean and readable enough by having "-mean()-", "-std()-" etc there. They can look cleaner if they are coerced into the same format that R can easily read and allow. Hence, the dot with underscore system is adopted. Underscore is used to differentiate the three axis "x","y","z".  e.g. "tBodyAcc.mean_X". 
+-The only drawback of the original naming is it's not clean and readable enough by having "-mean()-", "-std()-" etc there. They can look cleaner if they are coerced into the same format that R can easily read and allow. Hence, the dot with underscore system is adopted. Underscore is used to differentiate the three axes "x","y","z".  e.g. "tBodyAcc.mean_X". 
 
 Step5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-Per the request, step 5 is to find the mean of the all the measurement under each activity and subject. This is achived by using group_by() and summarise_each() under {dplyr} package. The independent tidy data then is saved under the object "tidy-data" and write into a "tidy_data.txt" file into the working directory with row.names=FALSE using write.table ().
+Per the request, step 5 is to find the mean of the all the measurement under each activity and subject. This is achieved by using group_by() and summarise_each() under {dplyr} package. The independent tidy data then is saved under the object "tidy-data" and write into a "tidy_data.txt" file into the working directory with row.names=FALSE using write.table ().
 
