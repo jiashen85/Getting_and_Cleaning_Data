@@ -16,7 +16,7 @@ joint<-rbind(subject1,subject2)
 names(joint)<-"subject"
 #above is to read the subject file for test and training groups and rbinding them into be one dataset and then assign "subject" to be its name. 
 
-#step3:Uses descriptive activity names to name the activities in the data set
+#Step3:Uses descriptive activity names to name the activities in the data set
 nact1<-read.table("./test/y_test.txt")
 nact2<-read.table("./train/y_train.txt")
 activity<-rbind(nact1,nact2)
@@ -37,7 +37,7 @@ dim(newdata)
 #above is to column combine the subject and activity into the previous data set.It has 10299 rows and 563 rows. 
 #This newdata will be used for the below data processing. 
 
-#step2: Extracts only the measurements on the mean and standard deviation for each measurement.
+#Step2: Extracts only the measurements on the mean and standard deviation for each measurement.
 
 library(dplyr)
 library(gdata)
@@ -67,7 +67,7 @@ View(new2)
 names(new)<-new2
 #above is to assign back the names that is more descriptive and readable than what the feature.txt file provided.
 
-#step5:creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+#Step5:creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 newf<-group_by(new,subject,activity)
 #using group_by() to group all the values under each subject and each activity.
 tidy_data<-summarise_each(newf,funs(mean))
