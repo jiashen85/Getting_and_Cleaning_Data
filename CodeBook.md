@@ -67,7 +67,23 @@ nact2: data frame read from y_train.txt file that contains activity codes for th
 
 activity: the combined data frame from nact1 and nact2 with column name as "activity". It has 10299 rows and 1 column with values substituted for descriptive names. The mapping is: "1=walking" , "2=walking_upstairs", "3=walking_downstairs","4=sitting","5=standing", "6=laying".
 
-v_colnames: valid column names that is recognizable by R which excludes the duplicates such as 
+newdata:the merged data set with subject and descriptive activity columns together with other 561 feature columns. It has 10299 rows and 563 rows.
+
+v_colnames: valid column names that is recognizable by R which excludes the duplicates and coerces signs to dots. 
+
+good: a list of names that contains "mean" and "std" excluding "Mean"(see reason in README.md file).
+
+good1: the unlisted version of good which is a character vector.
+
+new: data set that has all the measurements on the mean and standard deviation together with subject and activity columns. It has 10299 rows and 81 columns, of which, 79 are from the means and standard deviation columns. 
+
+new1: a vector generated after coercing the pattern "...X" to "_X" (e.g).
+
+new2: a vector generator after coercing the pattern"std.." to "std" (e.g.). 
+
+newf: a data set after grouped by subject and activity.
+
+tidy_data: a data set derived from newf that contains the average of every variable for each activity and subject. It has 30*6 rows and 81 columns (subject and activity column with 79 columns from mean and standard deviation).
 
 
 
