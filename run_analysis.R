@@ -72,7 +72,7 @@ newf<-group_by(new,subject,activity)
 #using group_by() to group all the values under each subject and each activity.
 tidy_data<-summarise_each(newf,funs(mean))
 #the final dataset is required to have the average value of each variable for each subject and activity. 
-head(tidy-data[,1:5],10)
+head(tidy_data[,1:5],10)
 #you can test the result by running the above code. 
 
 write.table(tidy_data,file="./tidy_data.txt",row.names=FALSE)
