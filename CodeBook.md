@@ -65,7 +65,9 @@ nact1: data frame read from y_test.txt file that contains activity codes for the
 
 nact2: data frame read from y_train.txt file that contains activity codes for the training population. It has 7352 rows and 1 column with values ranging from 1 to 6. 
 
-activity: the combined data frame from nact1 and nact2 with column name as "activity". It has 10299 rows and 1 column with values substituted for descriptive names such as 
+activity: the combined data frame from nact1 and nact2 with column name as "activity". It has 10299 rows and 1 column with values substituted for descriptive names. The mapping is: "1=walking" , "2=walking_upstairs", "3=walking_downstairs","4=sitting","5=standing", "6=laying".
+
+v_colnames: valid column names that is recognizable by R which excludes the duplicates such as 
 
 
 
