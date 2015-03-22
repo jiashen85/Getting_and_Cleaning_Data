@@ -9,4 +9,5 @@ This README.md file is composed to describe how the run_analysis.R script works 
 
 In order to run the script "run_analysis.R", you need to have some preparation. They are (based on what i personally used):
 R Version: R version 3.1.3 (2015-03-09) -- "Smooth Sidewalk"
+
 Platform:x86_64-w64-mingw32/x64 (64-bit)
