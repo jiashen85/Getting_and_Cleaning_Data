@@ -64,8 +64,21 @@ step3: Uses descriptive activity names to name the activities in the data set
 
 Read the activity code files "y_test.txt", "y_train.txt" and save them under the objects "nact1", nact2".Combine them together to be one dataset named "activity". Per the project request, we need to substitute codes for descriptive names which provided by the "activity_lables.txt" file. That is "1=walking" , "2=walking_upstairs", "3=walking_downstairs","4=sitting","5=standing", "6=laying". This has been achieved via a code string (e.g.) 'activity$V1[activity$V1=="1"]<-"walking"'. After it's done, rename the column as "activity" and combine the columns of "joint" and "activity" and "rawdata" together and create a new dataset called "newdata".They should be in 10299 rows and 563 columns. 
 
-Step2:Extracts only the measurements on the mean and standard deviation for each measurement.
+Step2: Extracts only the measurements on the mean and standard deviation for each measurement.
 
 Install and load packages {dplyr} and {gdata}. After observation using Notepad++, you will find the naming convention in the feature.txt file is bit messy. There are names such as "303 fBodyAcc-bandsEnergy()-1,8","304 fBodyAcc-bandsEnergy()-9,16" etc. In R, those names will be treated as duplicates.Therefore, make.names() is used to remove the duplicated and clean up the name pattern. e.g.the name "fBodyGyro-bandsEnergy()-17,32" becomes "fBodyGyro.bandsEnergy.17.32". Dots have been adopted to be the major naming convention as it's allowed in R according to the R documentation here: https://stat.ethz.ch/R-manual/R-devel/library/base/html/make.names.html. Then assign the new valid names "v_colnames" to be the names of the newdata. 
-The next step is to find all the columns whose names contains "mean" or " std(standard deviation)" per the request. matchols() is used under package {gdata} to achieve this purpose and save the extracted column names in object "good". Note that column names that contain "Mean"(cap M) is excluded as this script interprets that "Mean" is not equivalent to "mean" in the statistical meaning based on the description on the feature_infor.txt and the study design on README.txt file. 
+
+The next thing is to find all the columns whose names contains "mean" or " std(standard deviation)" per the request. matchols() is used under package {gdata} to achieve this purpose and save the extracted column names in object "good". Note that column names that contain "Mean"(cap M) is excluded as this script interprets that "Mean" is not equivalent to "mean" in the statistical meaning based on the description on the feature_infor.txt and the study design on README.txt file. We then extract all the measurements with those column names together with "subject" and "activity" from newdata using match() and simple subsetting. Now you should have a new dataset called "new" with 10299 rows and 81 columns( 79 from means and stds, 2 from subject and activity column).
+
+Step4: Appropriately labels the data set with descriptive variable names.
+
+As you may find, the naming convention after make.names() is still a little bit messy with formats like "...X/Y/Z","std..",etc. To further clean up, gsub() is used to perform the task and the names come out such as"tBodyAcc.mean_X", "fBodyBodyGyroJerkMag.meanFreq", "1	tBodyGyroJerk.std_X". The script didn't proceed to change the names based on the following reasons:
+
+-Due to the multiple types of data collected by the study, the naming convention is unavoidably complicated and the original naming did a good job by making them sensible but in a fairly short form. 
+
+-The only drawback of the original naming is it's not clean and readable enough by having "-mean()-", "-std()-" etc there. They can look cleaner if they are coerced into the same format that R can easily read and allow. Hence, the dot with underscore system is adopted. Underscore is used to differentiate the three axis "x","y","z".  e.g. "tBodyAcc.mean_X". 
+
+step5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+Per the request, step 5 is to find the mean of the all the measurement under each activity and subject. This is achived by using group_by() and summarise_each() under {dplyr} package. The independent tidy data then is saved under the object "tidy-data" and write into a "tidy_data.txt" file into the working directory with row.names=FALSE using write.table ().
 
